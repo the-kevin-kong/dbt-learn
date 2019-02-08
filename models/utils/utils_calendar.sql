@@ -1,5 +1,5 @@
 {{ dbt_utils.date_spine(
-    datepart="minute",
+    datepart="day",
     start_date="to_date('01/01/2016', 'mm/dd/yyyy')",
     end_date="dateadd(week, 1, current_date)"
    )

@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: stg_listing_history
+    description: A table containing history of listings.
+
+    columns:
+        - name: listing_id
+          description: This is an identifier for listings
+          tests:
+              - not_null
+              - relationships:
+                  to: ref('stg_listings')
+                  field: listing_id
+
+        - name: date
+          description: When the listing was updated
+          tests:
+              - not_null
+
+  - name: stg_listings
+    description: A table containing all listings.
+
+    columns:
+        - name: listing_id
+          description: This is a unique identifier for listings
+          tests:
+              - unique
+              - not_null
+
+  - name: stg_reviews
+    description: A table containing all reviews.
+
+    columns:
+        - name: listing_id
+          description: This is an identifier for listings
+          tests:
+              - not_null
+
+        - name: review_id
+          description: This is a unique identifier for reviews
+          tests:
+              - unique
+              # - not null

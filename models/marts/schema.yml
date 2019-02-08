@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: reviewer
+    description: A table containing reviewers and stats.
+
+    columns:
+        - name: reviewer_name
+          description: This is the name of the reviewer
+          tests:
+              - not_null
+              - unique
